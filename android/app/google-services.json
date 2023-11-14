@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "561912756674",
+    "project_id": "wake-up-336b8",
+    "storage_bucket": "wake-up-336b8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:561912756674:android:87c31968041a3e3002fe5b",
+        "android_client_info": {
+          "package_name": "com.xcarnage.wakeup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "561912756674-p26a3a3s513qvvq6gfc23fgmocdrjnpk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.xcarnage.wakeup",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "561912756674-v4gqj72pchd4rm05226n1puq3dqflh5d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmVFQqxaLuKmk_MxJDpAFPpzosLHsPbFc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "561912756674-v4gqj72pchd4rm05226n1puq3dqflh5d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
