@@ -11,6 +11,11 @@ import {FirebaseService} from '../services/firebase';
 import {useState} from 'react';
 import {navigateWithRef} from '../services/navigation';
 import {Colors} from '../services/colors';
+import {
+  horizontalScale,
+  moderateScale,
+  verticalScale,
+} from '../services/metrics';
 
 export const CreateModal = ({visible, toggleModal}) => {
   const [name, setName] = useState('');
@@ -32,12 +37,12 @@ export const CreateModal = ({visible, toggleModal}) => {
         <View style={style.modal}>
           <TextInput
             numberOfLines={1}
+            placeholder={'Enter the Name'}
+            placeholderTextColor={'grey'}
             style={style.title}
             onChangeText={name => {
               setName(name);
-            }}>
-            Enter the Name
-          </TextInput>
+            }}></TextInput>
           <TouchableOpacity
             onPress={async () => {
               toggleModal(false);
@@ -57,30 +62,34 @@ export const CreateModal = ({visible, toggleModal}) => {
 
 const style = StyleSheet.create({
   modalButton: {
-    height: 50,
-    width: 200,
+    height: verticalScale(60),
+    width: horizontalScale(200),
     backgroundColor: Colors.tertiaryColor,
-    borderRadius: 20,
+    borderRadius: moderateScale(20),
     textAlign: 'center',
     textAlignVertical: 'center',
-    marginTop: 35,
+    marginTop: verticalScale(30),
     color: Colors.primaryColor,
     borderColor: 'white',
     borderWidth: 2,
   },
   title: {
+    fontSize: moderateScale(20),
+    marginTop: verticalScale(20),
     color: Colors.primaryColor,
   },
   modal: {
-    margin: 20,
-    marginTop: 230,
-    height: 200,
+    marginHorizontal: horizontalScale(20),
+    marginBottom: verticalScale(20),
+    marginTop: verticalScale(250),
+    height: verticalScale(220),
     backgroundColor: Colors.secondaryColor,
     color: Colors.primaryColor,
-    borderRadius: 20,
+    borderRadius: moderateScale(20),
     borderColor: Colors.primaryColor,
     borderWidth: 2,
-    padding: 35,
+    paddingVertical: verticalScale(20),
+    paddingHorizontal: horizontalScale(20),
     alignItems: 'center',
   },
 });

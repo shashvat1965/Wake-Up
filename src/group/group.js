@@ -6,17 +6,20 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {Heading} from 'tamagui';
 import {useEffect, useState} from 'react';
 import firestore from '@react-native-firebase/firestore';
 import AddSVGComponent from '../../assets/add';
 import {FirebaseService} from '../services/firebase';
 import {Colors} from '../services/colors';
 import DatePicker from 'react-native-date-picker';
-import {createScheduledNotification} from '../../index';
 import {StorageService} from '../services/local_storage';
+import {
+  horizontalScale,
+  moderateScale,
+  verticalScale,
+} from '../services/metrics';
 
-export const GroupScreen = ({navigation, route}) => {
+export const GroupScreen = ({route}) => {
   const groupId = route.params.id;
   const [loading, setLoading] = useState(true);
   const [users, setUsers] = useState([]);
@@ -90,7 +93,9 @@ export const GroupScreen = ({navigation, route}) => {
                 </TouchableOpacity>
               )}></FlatList>
           ) : (
-            <Heading color="white">No members yet!</Heading>
+            <Text style={style.title} color="white">
+              No members yet!
+            </Text>
           )
         ) : (
           <ActivityIndicator color="white"></ActivityIndicator>
@@ -117,14 +122,14 @@ const style = StyleSheet.create({
     backgroundColor: Colors.bgColor,
   },
   fab: {
-    width: 70,
-    height: 70,
-    borderRadius: 35,
+    width: horizontalScale(70),
+    height: verticalScale(70),
+    borderRadius: moderateScale(35),
     position: 'absolute',
     justifyContent: 'center',
     alignItems: 'center',
-    bottom: 30,
-    right: 30,
+    bottom: verticalScale(30),
+    right: horizontalScale(30),
     backgroundColor: Colors.tertiaryColor,
     elevation: 5,
     shadowColor: '#000',
@@ -138,19 +143,20 @@ const style = StyleSheet.create({
   list: {
     width: '80%',
     backgroundColor: Colors.bgColor,
-    marginTop: 20,
+    marginTop: verticalScale(20),
   },
   item: {
     backgroundColor: Colors.secondaryColor,
-    padding: 20,
-    marginTop: 20,
-    marginHorizontal: 16,
-    borderRadius: 20,
+    paddingVertical: verticalScale(20),
+    paddingHorizontal: horizontalScale(20),
+    marginTop: verticalScale(20),
+    marginHorizontal: horizontalScale(20),
+    borderRadius: moderateScale(20),
     borderWidth: 1,
     borderColor: Colors.tertiaryColor,
   },
   title: {
-    fontSize: 32,
+    fontSize: moderateScale(32),
     color: Colors.primaryColor,
   },
 });

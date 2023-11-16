@@ -1,10 +1,12 @@
-import {StyleSheet, TouchableOpacity, View} from 'react-native';
-import {H1} from 'tamagui';
+import {StyleSheet, TouchableOpacity, View, Text} from 'react-native';
 import Google_icon from '../../assets/google_icon';
 import {FirebaseService} from '../services/firebase';
-import messaging from '@react-native-firebase/messaging';
-import {StorageService} from '../services/local_storage';
 import {Colors} from '../services/colors';
+import {
+  horizontalScale,
+  moderateScale,
+  verticalScale,
+} from '../services/metrics';
 
 export const LoginScreen = ({navigation}) => {
   const signIn = async () => {
@@ -15,7 +17,7 @@ export const LoginScreen = ({navigation}) => {
 
   return (
     <View style={style.bg}>
-      <H1 style={style.header}>Wake Up!</H1>
+      <Text style={style.header}>Wake Up!</Text>
       <TouchableOpacity onPress={signIn}>
         <View style={style.googleButton}>
           <Google_icon></Google_icon>
@@ -33,15 +35,17 @@ const style = StyleSheet.create({
     alignItems: 'center',
   },
   header: {
-    marginTop: 200,
+    marginTop: verticalScale(200),
     color: Colors.primaryColor,
+    fontSize: moderateScale(32),
   },
   googleButton: {
-    marginTop: 100,
+    marginTop: verticalScale(100),
     borderStyle: 'solid',
     borderColor: 'white',
-    borderRadius: 20,
+    borderRadius: moderateScale(20),
     borderWidth: 2,
-    padding: 10,
+    paddingVertical: verticalScale(20),
+    paddingHorizontal: horizontalScale(20),
   },
 });

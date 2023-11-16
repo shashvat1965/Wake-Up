@@ -5,20 +5,19 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  Alert,
-  Modal,
-  TextInput,
 } from 'react-native';
-import {Heading} from 'tamagui';
 import {useEffect, useState} from 'react';
 import firestore from '@react-native-firebase/firestore';
 import {StorageService} from '../services/local_storage';
 import AddSVGComponent from '../../assets/add';
-import {FirebaseService} from '../services/firebase';
-import {Timestamp} from '@react-native-firebase/firestore/lib/modular/Timestamp';
 import {CreateModal} from './create_modal';
 import {JoinModal} from './join_modal';
 import {Colors} from '../services/colors';
+import {
+  horizontalScale,
+  moderateScale,
+  verticalScale,
+} from '../services/metrics';
 
 export const HomeScreen = ({navigation}) => {
   const [loading, setLoading] = useState(true);
@@ -87,7 +86,7 @@ export const HomeScreen = ({navigation}) => {
                 </TouchableOpacity>
               )}></FlatList>
           ) : (
-            <Heading color="white">No groups yet!</Heading>
+            <Text color="white">No groups yet!</Text>
           )
         ) : (
           <ActivityIndicator color="white"></ActivityIndicator>
@@ -123,27 +122,27 @@ const style = StyleSheet.create({
     backgroundColor: Colors.bgColor,
   },
   createFab: {
-    width: 70,
-    height: 70,
-    borderRadius: 35,
+    width: horizontalScale(70),
+    height: verticalScale(70),
+    borderRadius: moderateScale(35),
     position: 'absolute',
     justifyContent: 'center',
     alignItems: 'center',
-    bottom: 30,
-    right: 30,
+    bottom: verticalScale(30),
+    right: horizontalScale(30),
     backgroundColor: Colors.tertiaryColor,
     elevation: 5,
     shadowColor: '#000',
   },
   joinFab: {
-    width: 70,
-    height: 70,
-    borderRadius: 35,
+    width: horizontalScale(70),
+    height: verticalScale(70),
+    borderRadius: moderateScale(35),
     position: 'absolute',
     justifyContent: 'center',
     alignItems: 'center',
-    bottom: 30,
-    left: 30,
+    bottom: verticalScale(30),
+    left: horizontalScale(30),
     backgroundColor: Colors.tertiaryColor,
     elevation: 5,
     shadowColor: '#000',
@@ -157,19 +156,20 @@ const style = StyleSheet.create({
   list: {
     width: '80%',
     backgroundColor: Colors.bgColor,
-    marginTop: 20,
+    marginTop: verticalScale(20),
   },
   item: {
     backgroundColor: Colors.secondaryColor,
-    padding: 20,
-    marginTop: 20,
-    marginHorizontal: 16,
-    borderRadius: 20,
+    paddingVertical: verticalScale(20),
+    paddingHorizontal: horizontalScale(20),
+    marginTop: verticalScale(20),
+    marginHorizontal: horizontalScale(16),
+    borderRadius: moderateScale(20),
     borderWidth: 1,
     borderColor: Colors.tertiaryColor,
   },
   title: {
-    fontSize: 32,
+    fontSize: moderateScale(32),
     color: Colors.primaryColor,
   },
 });
